@@ -612,18 +612,21 @@
 
       .value-seconds {
         display: inline-flex;
-        align-items: baseline;
+        align-items: flex-end;
         justify-content: center;
-        gap: 0.02em;
-        min-width: 2.8em;
+        gap: 0.04em;
+        width: 100%;
+        min-width: 0;
         font-variant-numeric: tabular-nums;
+        white-space: nowrap;
       }
 
       .value-fraction {
-        font-size: 0.42em;
-        letter-spacing: 0.04em;
-        min-width: 1.25em;
+        font-size: 0.32em;
+        letter-spacing: 0.02em;
+        min-width: 0;
         text-align: left;
+        transform: translateY(-0.08em);
       }
 
       .meta {
@@ -1004,6 +1007,7 @@
       const hundredthsEl = document.getElementById("hundredths");
       const statusEl = document.getElementById("status");
       const datePillEl = document.getElementById("date-pill");
+      const titleEl = document.getElementById("countdown-title");
       const pageEl = document.getElementById("page");
       const gateEl = document.getElementById("gate");
       const gateFormEl = document.getElementById("gate-form");
@@ -1068,6 +1072,7 @@
 
       function unlockExperience(mode) {
         pageEl.classList.toggle("is-amber", mode === "amber");
+        titleEl.textContent = mode === "amber" ? "AMBER'S COACHELLA W2 COUNTDOWN" : "COACHELLA W2 COUNTDOWN!!!";
         pageEl.classList.add("is-unlocking");
         document.body.classList.add("unlocked");
 
