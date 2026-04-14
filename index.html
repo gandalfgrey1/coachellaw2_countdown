@@ -14,6 +14,7 @@
       :root {
         --bg: #020611;
         --bg-deep: #040a17;
+        --hero-image: url("hero-face.png");
         --panel: rgba(7, 18, 35, 0.34);
         --panel-border: rgba(190, 241, 255, 0.34);
         --line: rgba(164, 233, 255, 0.1);
@@ -26,7 +27,7 @@
           0 0 24px rgba(116, 226, 255, 0.2),
           0 0 68px rgba(80, 215, 255, 0.14),
           0 0 140px rgba(80, 215, 255, 0.08),
-          0 0 110px rgba(255, 79, 216, 0.12);
+          0 0 110px rgba(96, 160, 255, 0.12);
       }
 
       * {
@@ -57,6 +58,34 @@
         background: var(--bg);
       }
 
+      .page.is-amber {
+        --hero-image: url("hero-face_amber.png");
+        --panel-border: rgba(255, 170, 224, 0.46);
+        --line: rgba(255, 145, 222, 0.16);
+        --muted: rgba(255, 221, 243, 0.8);
+        --blue: #ff68c8;
+        --blue-bright: #ffd5f2;
+        --blue-core: #ff3faf;
+        --shadow:
+          0 0 26px rgba(255, 95, 196, 0.26),
+          0 0 78px rgba(255, 63, 175, 0.2),
+          0 0 150px rgba(255, 63, 175, 0.12),
+          0 0 140px rgba(255, 171, 227, 0.16);
+      }
+
+      .page.is-amber::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 50% 48%, rgba(255, 80, 196, 0.18), transparent 24%),
+          radial-gradient(circle at 50% 50%, rgba(255, 182, 228, 0.12), transparent 48%);
+        mix-blend-mode: screen;
+        pointer-events: none;
+        opacity: 0.7;
+        animation: amber-page-pulse 5s ease-in-out infinite;
+      }
+
       .hero-bg {
         position: absolute;
         inset: 0;
@@ -64,7 +93,7 @@
           linear-gradient(180deg, rgba(2, 8, 18, 0.48) 0%, rgba(2, 8, 18, 0.24) 38%, rgba(1, 5, 14, 0.62) 100%),
           radial-gradient(circle at 50% 52%, rgba(79, 230, 233, 0.1), transparent 24%),
           linear-gradient(90deg, rgba(2, 7, 16, 0.48) 0%, rgba(3, 10, 21, 0.18) 36%, rgba(3, 10, 21, 0.08) 62%, rgba(2, 7, 16, 0.44) 100%),
-          url("hero-face.png");
+          var(--hero-image);
         background-size: cover;
         background-position: 72% center;
         background-repeat: no-repeat;
@@ -137,6 +166,13 @@
         animation: hero-pulse-rings 4.4s ease-in-out infinite;
       }
 
+      .page.is-amber .hero-bg::after {
+        background:
+          radial-gradient(circle at 50% 54%, rgba(32, 0, 18, 0.42) 0%, transparent 14%, transparent 18%, rgba(255, 149, 224, 0.16) 18.2%, transparent 19.2%, transparent 27%, rgba(255, 111, 206, 0.12) 27.3%, transparent 28.1%, transparent 38%, rgba(255, 173, 230, 0.1) 38.3%, transparent 39.1%),
+          linear-gradient(90deg, rgba(255, 87, 194, 0.08), transparent 28%, transparent 72%, rgba(255, 87, 194, 0.07)),
+          radial-gradient(circle at 50% 52%, rgba(255, 106, 205, 0.14), transparent 32%);
+      }
+
       .hero-tech {
         position: absolute;
         inset: 0;
@@ -170,7 +206,7 @@
         transform: translate(-50%, -50%);
         background:
           radial-gradient(circle at 50% 50%, rgba(235, 254, 255, 0.94) 0 7%, rgba(160, 247, 255, 0.58) 10%, rgba(57, 221, 255, 0.28) 18%, rgba(66, 144, 255, 0.12) 29%, rgba(101, 23, 163, 0.18) 43%, rgba(14, 9, 45, 0.62) 57%, rgba(3, 4, 17, 0) 71%),
-          conic-gradient(from 0deg, rgba(86, 240, 255, 0.12), rgba(255, 97, 201, 0.18), rgba(90, 98, 255, 0.16), rgba(86, 240, 255, 0.12));
+          conic-gradient(from 0deg, rgba(86, 240, 255, 0.12), rgba(120, 150, 255, 0.18), rgba(90, 98, 255, 0.16), rgba(86, 240, 255, 0.12));
         box-shadow:
           0 0 32px rgba(127, 243, 255, 0.32),
           0 0 100px rgba(77, 231, 255, 0.24),
@@ -201,7 +237,7 @@
         box-shadow:
           0 0 0 10px rgba(116, 224, 255, 0.04),
           0 0 28px rgba(116, 224, 255, 0.18),
-          inset 0 0 24px rgba(255, 92, 201, 0.1);
+          inset 0 0 24px rgba(118, 160, 255, 0.1);
         clip-path: polygon(12% 17%, 29% 8%, 44% 12%, 56% 7%, 76% 16%, 88% 31%, 91% 50%, 84% 68%, 72% 83%, 51% 92%, 33% 88%, 16% 77%, 7% 58%, 10% 37%);
         animation: rift-spin 26s linear infinite;
       }
@@ -213,7 +249,7 @@
         top: 52%;
         transform: translate(-50%, -50%);
         background:
-          radial-gradient(circle, rgba(95, 243, 255, 0.18) 0 18%, rgba(95, 243, 255, 0.08) 24%, rgba(255, 86, 212, 0.06) 34%, transparent 58%),
+          radial-gradient(circle, rgba(95, 243, 255, 0.18) 0 18%, rgba(95, 243, 255, 0.08) 24%, rgba(124, 152, 255, 0.06) 34%, transparent 58%),
           repeating-conic-gradient(from 0deg, rgba(134, 239, 255, 0.08) 0deg 10deg, transparent 10deg 26deg);
         filter: blur(14px);
         opacity: 0.6;
@@ -227,10 +263,55 @@
         top: 52%;
         transform: translate(-50%, -50%);
         background:
-          radial-gradient(circle at 50% 50%, transparent 0 33%, rgba(159, 246, 255, 0.16) 33.2% 33.6%, transparent 33.8% 41%, rgba(255, 90, 210, 0.1) 41.2% 41.45%, transparent 41.7% 48%, rgba(114, 225, 255, 0.08) 48.2% 48.35%, transparent 48.6%),
-          conic-gradient(from 90deg, transparent 0 14%, rgba(146, 243, 255, 0.14) 16%, transparent 20% 41%, rgba(255, 88, 198, 0.14) 44%, transparent 48% 69%, rgba(109, 111, 255, 0.14) 72%, transparent 76% 100%);
+          radial-gradient(circle at 50% 50%, transparent 0 33%, rgba(159, 246, 255, 0.16) 33.2% 33.6%, transparent 33.8% 41%, rgba(120, 152, 255, 0.1) 41.2% 41.45%, transparent 41.7% 48%, rgba(114, 225, 255, 0.08) 48.2% 48.35%, transparent 48.6%),
+          conic-gradient(from 90deg, transparent 0 14%, rgba(146, 243, 255, 0.14) 16%, transparent 20% 41%, rgba(116, 160, 255, 0.14) 44%, transparent 48% 69%, rgba(109, 111, 255, 0.14) 72%, transparent 76% 100%);
         opacity: 0.38;
         animation: rift-spin 34s linear infinite reverse;
+      }
+
+      .page.is-amber .hero-rift,
+      .page.is-amber .hero-rings,
+      .page.is-amber .hero-rgb,
+      .page.is-amber .panel,
+      .page.is-amber .date-pill::before {
+        animation-duration: 5s;
+      }
+
+      .page.is-amber .hero-rift-core {
+        background:
+          radial-gradient(circle at 50% 50%, rgba(255, 244, 251, 0.96) 0 7%, rgba(255, 173, 226, 0.62) 10%, rgba(255, 82, 191, 0.34) 18%, rgba(255, 56, 162, 0.16) 29%, rgba(118, 17, 74, 0.24) 43%, rgba(34, 7, 27, 0.62) 57%, rgba(3, 4, 17, 0) 71%),
+          conic-gradient(from 0deg, rgba(255, 160, 225, 0.16), rgba(255, 71, 176, 0.22), rgba(255, 210, 240, 0.14), rgba(255, 160, 225, 0.16));
+        box-shadow:
+          0 0 38px rgba(255, 138, 216, 0.36),
+          0 0 110px rgba(255, 73, 183, 0.28),
+          0 0 180px rgba(255, 160, 225, 0.18);
+      }
+
+      .page.is-amber .hero-rift-core::before {
+        background:
+          radial-gradient(circle at 35% 42%, rgba(255, 255, 255, 0.5), transparent 16%),
+          radial-gradient(circle at 65% 58%, rgba(255, 152, 220, 0.42), transparent 24%),
+          radial-gradient(circle at 50% 50%, rgba(37, 8, 28, 0.86) 30%, rgba(37, 8, 28, 0.18) 49%, transparent 57%);
+      }
+
+      .page.is-amber .hero-rift-core::after {
+        border-color: rgba(255, 191, 233, 0.28);
+        box-shadow:
+          0 0 0 10px rgba(255, 122, 210, 0.06),
+          0 0 28px rgba(255, 122, 210, 0.22),
+          inset 0 0 24px rgba(255, 228, 244, 0.14);
+      }
+
+      .page.is-amber .hero-rift-halo {
+        background:
+          radial-gradient(circle, rgba(255, 118, 212, 0.24) 0 18%, rgba(255, 118, 212, 0.1) 24%, rgba(255, 203, 239, 0.08) 34%, transparent 58%),
+          repeating-conic-gradient(from 0deg, rgba(255, 177, 231, 0.1) 0deg 10deg, transparent 10deg 26deg);
+      }
+
+      .page.is-amber .hero-rift-arcs {
+        background:
+          radial-gradient(circle at 50% 50%, transparent 0 33%, rgba(255, 183, 232, 0.22) 33.2% 33.6%, transparent 33.8% 41%, rgba(255, 84, 191, 0.16) 41.2% 41.45%, transparent 41.7% 48%, rgba(255, 217, 242, 0.12) 48.2% 48.35%, transparent 48.6%),
+          conic-gradient(from 90deg, transparent 0 14%, rgba(255, 190, 235, 0.18) 16%, transparent 20% 41%, rgba(255, 82, 191, 0.18) 44%, transparent 48% 69%, rgba(255, 214, 242, 0.18) 72%, transparent 76% 100%);
       }
 
       .hero-rings,
@@ -254,10 +335,23 @@
       .hero-rgb {
         opacity: 0;
         background:
-          linear-gradient(90deg, transparent 0 14%, rgba(255, 44, 92, 0.18) 14% 14.4%, transparent 14.6% 84.8%, rgba(50, 234, 255, 0.18) 85% 85.4%, transparent 85.6% 100%),
-          radial-gradient(circle at 50% 54%, transparent 0 18%, rgba(255, 44, 92, 0.14) 18.05% 18.2%, transparent 18.25% 27.8%, rgba(50, 234, 255, 0.14) 27.85% 28%, transparent 28.05%);
+          linear-gradient(90deg, transparent 0 14%, rgba(116, 160, 255, 0.18) 14% 14.4%, transparent 14.6% 84.8%, rgba(50, 234, 255, 0.18) 85% 85.4%, transparent 85.6% 100%),
+          radial-gradient(circle at 50% 54%, transparent 0 18%, rgba(116, 160, 255, 0.14) 18.05% 18.2%, transparent 18.25% 27.8%, rgba(50, 234, 255, 0.14) 27.85% 28%, transparent 28.05%);
         mix-blend-mode: screen;
         animation: hero-pulse-rgb 4.4s ease-in-out infinite;
+      }
+
+      .page.is-amber .hero-rings {
+        background:
+          radial-gradient(circle at 50% 54%, transparent 0 11%, rgba(255, 187, 234, 0.38) 11.1% 11.3%, transparent 11.4% 18.6%, rgba(255, 120, 214, 0.28) 18.7% 18.9%, transparent 19% 28.8%, rgba(255, 87, 194, 0.2) 28.9% 29.05%, transparent 29.15% 42%, rgba(255, 205, 239, 0.14) 42.1% 42.25%, transparent 42.35%),
+          linear-gradient(180deg, rgba(255, 154, 223, 0.12), transparent 24%, transparent 76%, rgba(255, 154, 223, 0.1)),
+          linear-gradient(90deg, rgba(19, 0, 12, 0.52), transparent 22%, transparent 78%, rgba(19, 0, 12, 0.52));
+      }
+
+      .page.is-amber .hero-rgb {
+        background:
+          linear-gradient(90deg, transparent 0 14%, rgba(255, 219, 243, 0.16) 14% 14.4%, transparent 14.6% 84.8%, rgba(255, 56, 166, 0.22) 85% 85.4%, transparent 85.6% 100%),
+          radial-gradient(circle at 50% 54%, transparent 0 18%, rgba(255, 219, 243, 0.14) 18.05% 18.2%, transparent 18.25% 27.8%, rgba(255, 56, 166, 0.2) 27.85% 28%, transparent 28.05%);
       }
 
       .gate {
@@ -332,6 +426,28 @@
         opacity: 1;
       }
 
+      .version-tag {
+        position: absolute;
+        left: 50%;
+        bottom: 22px;
+        transform: translateX(-50%);
+        font-family: "Oxanium", sans-serif;
+        font-size: clamp(0.95rem, 2vw, 1.15rem);
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 214, 242, 0.5);
+        text-shadow: 0 0 18px rgba(255, 90, 198, 0.16);
+        opacity: 0;
+        pointer-events: none;
+        white-space: nowrap;
+        transition: opacity 420ms ease;
+      }
+
+      .page.is-amber .version-tag {
+        opacity: 1;
+      }
+
       .panel {
         width: min(640px, 100%);
         padding: 14px 28px 10px;
@@ -368,6 +484,18 @@
         pointer-events: none;
       }
 
+      .page.is-amber .panel::before {
+        background:
+          linear-gradient(180deg, rgba(255, 232, 245, 0.22), rgba(255, 232, 245, 0.07) 14%, transparent 34%),
+          linear-gradient(135deg, rgba(255, 166, 226, 0.16), transparent 32%),
+          radial-gradient(circle at top right, rgba(255, 95, 196, 0.22), transparent 30%);
+      }
+
+      .page.is-amber .panel-glitch::before,
+      .page.is-amber .panel-glitch::after {
+        border-color: rgba(255, 172, 228, 0.2);
+      }
+
 
       .panel-glitch {
         position: absolute;
@@ -396,7 +524,7 @@
 
       .panel-glitch::after {
         inset: 3px 5px 4px 3px;
-        border-color: rgba(255, 79, 216, 0.08);
+        border-color: rgba(116, 160, 255, 0.08);
         clip-path: polygon(0 0, 24% 0, 24% 3%, 52% 3%, 52% 0, 100% 0, 100% 18%, 97% 18%, 97% 83%, 100% 83%, 100% 100%, 73% 100%, 73% 97%, 41% 97%, 41% 100%, 0 100%, 0 77%, 2% 77%, 2% 23%, 0 23%);
         opacity: 0.72;
       }
@@ -411,8 +539,8 @@
         text-transform: uppercase;
         color: var(--text);
         text-shadow:
-          1px 0 0 rgba(255, 79, 216, 0.42),
-          2px 0 10px rgba(255, 79, 216, 0.24),
+          1px 0 0 rgba(116, 160, 255, 0.42),
+          2px 0 10px rgba(116, 160, 255, 0.24),
           0 0 18px rgba(136, 233, 255, 0.24),
           0 0 40px rgba(80, 215, 255, 0.12);
         -webkit-text-stroke: 0.45px rgba(3, 10, 22, 0.56);
@@ -461,11 +589,25 @@
         font-weight: 700;
         color: var(--blue-bright);
         text-shadow:
-          1px 0 0 rgba(255, 79, 216, 0.34),
-          2px 0 8px rgba(255, 79, 216, 0.2),
+          1px 0 0 rgba(116, 160, 255, 0.34),
+          2px 0 8px rgba(116, 160, 255, 0.2),
           0 0 12px rgba(136, 233, 255, 0.36),
           0 0 28px rgba(80, 215, 255, 0.14);
         -webkit-text-stroke: 0.35px rgba(3, 10, 22, 0.48);
+      }
+
+      .page.is-amber h1,
+      .page.is-amber .value {
+        text-shadow:
+          1px 0 0 rgba(255, 211, 241, 0.4),
+          2px 0 10px rgba(255, 110, 208, 0.3),
+          0 0 22px rgba(255, 97, 201, 0.28),
+          0 0 44px rgba(255, 63, 175, 0.18);
+      }
+
+      .page.is-amber .unit {
+        border-color: rgba(255, 175, 229, 0.22);
+        background: rgba(42, 9, 31, 0.2);
       }
 
       .value-seconds {
@@ -693,6 +835,23 @@
         }
       }
 
+      @keyframes amber-page-pulse {
+        0%,
+        84%,
+        100% {
+          opacity: 0.5;
+          filter: brightness(1);
+        }
+        88% {
+          opacity: 0.95;
+          filter: brightness(1.18);
+        }
+        92% {
+          opacity: 0.72;
+          filter: brightness(1.08);
+        }
+      }
+
       @media (max-width: 960px) {
         .shell {
           align-items: center;
@@ -713,7 +872,7 @@
           background-image:
             linear-gradient(180deg, rgba(2, 6, 17, 0.28) 0%, rgba(2, 6, 17, 0.14) 38%, rgba(2, 6, 17, 0.44) 100%),
             linear-gradient(90deg, rgba(2, 6, 17, 0.4) 0%, rgba(2, 6, 17, 0.18) 44%, rgba(2, 6, 17, 0.04) 100%),
-            url("hero-face.png");
+            var(--hero-image);
         }
 
         .hero-rift-core {
@@ -831,6 +990,7 @@
           </div>
         </section>
       </div>
+      <div class="version-tag" aria-hidden="true">V2 - Amber's Recovery Version</div>
     </main>
 
     <script>
@@ -852,6 +1012,14 @@
       const themeAudioEl = document.getElementById("theme-audio");
       const VALID_WORDS = new Set(["nativa", "teva", "alyssa", "mary", "droppinz", "maximo", "james", "amber", "marko", "alex"]);
       let hasUnlockedAudio = false;
+
+      function getTrackForMode(mode) {
+        if (mode === "amber") {
+          return "track_amber.mp3";
+        }
+
+        return "track.mp3";
+      }
 
       function formatDate(targetDate) {
         return new Intl.DateTimeFormat("en-US", {
@@ -898,7 +1066,8 @@
         statusEl.textContent = "Live countdown in progress.";
       }
 
-      function unlockExperience() {
+      function unlockExperience(mode) {
+        pageEl.classList.toggle("is-amber", mode === "amber");
         pageEl.classList.add("is-unlocking");
         document.body.classList.add("unlocked");
 
@@ -920,10 +1089,12 @@
           gateErrorEl.textContent = "";
           if (!hasUnlockedAudio) {
             hasUnlockedAudio = true;
+            themeAudioEl.src = getTrackForMode(value);
+            themeAudioEl.load();
             themeAudioEl.currentTime = 0;
             themeAudioEl.play().catch(() => {});
           }
-          unlockExperience();
+          unlockExperience(value);
         }
       }
 
